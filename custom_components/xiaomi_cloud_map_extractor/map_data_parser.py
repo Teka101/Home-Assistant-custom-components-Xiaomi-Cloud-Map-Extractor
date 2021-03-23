@@ -18,6 +18,8 @@ class MapDataParser:
     BLOCKS = 11
     NO_MOPPING_AREAS = 12
     OBSTACLES = 13
+    OBSTACLES_WITH_TYPE = 14
+    OBSTACLES_WITH_TYPE_AND_PHOTO = 15
     DIGEST = 1024
     MM = 50
     SIZE = 1024
@@ -67,7 +69,7 @@ class MapDataParser:
                 map_data.no_go_areas = MapDataParser.parse_area(header, data)
             elif block_type == MapDataParser.NO_MOPPING_AREAS:
                 map_data.no_mopping_areas = MapDataParser.parse_area(header, data)
-            elif block_type == MapDataParser.OBSTACLES:
+            elif block_type == MapDataParser.OBSTACLES or block_type == MapDataParser.OBSTACLES_WITH_TYPE or block_type == MapDataParser.OBSTACLES_WITH_TYPE_AND_PHOTO:
                 map_data.obstacles = MapDataParser.parse_obstacles(data, header)
             elif block_type == MapDataParser.BLOCKS:
                 block_pairs = MapDataParser.get_int16(header, 0x08)
@@ -163,12 +165,25 @@ class MapDataParser:
     @staticmethod
     def parse_obstacles(data, header):
         obstacle_pairs = MapDataParser.get_int16(header, 0x08)
+        obstacle_size = int(len(data) / obstacle_pairs)
         obstacles = []
-        for obstacle_start in range(0, obstacle_pairs * 5, 5):
+        for obstacle_start in range(0, obstacle_pairs * obstacle_size, obstacle_size):
             x0 = MapDataParser.get_int16(data, obstacle_start + 0)
             y0 = MapDataParser.get_int16(data, obstacle_start + 2)
-            u = data[obstacle_start + 0] & 0xFF
-            obstacles.append({x0: x0, y0: y0, u: u})
+            u = None
+            if obstacle_size == 5:
+                u = {'type':  data[obstacle_start + 0] & 0xFF}
+            elif obstacle_size >= 6:
+                u = {'type':  MapDataParser.get_int16(data, obstacle_start + 4)}
+                if obstacle_size >= 10:
+                    u1 = MapDataParser.get_int16(data, obstacle_start + 6)
+                    u2 = MapDataParser.get_int16(data, obstacle_start + 8)
+                    u['confidence_level'] = u1 * 10.0 / u2
+                    if obstacle_size == 28 and (data[obstacle_start + 12] & 0xFF) > 0:
+                        txt = MapDataParser.get_bytes(data, obstacle_start + 12, 16)
+                        u['photo'] = txt.decode('ascii')
+            obstacles.append(Point(x0, y0, u))
+
         return obstacles
 
     @staticmethod
@@ -222,6 +237,8 @@ class MapDataParser:
             if DRAWABLE_VACUUM_POSITION == drawable and map_data.vacuum_position is not None:
                 ImageHandler.draw_vacuum_position(map_data.image, map_data.vacuum_position,
                                                   sizes[CONF_SIZE_VACUUM_RADIUS], colors)
+            if DRAWABLE_OBSTACLES == drawable and map_data.obstacles is not None:
+                ImageHandler.draw_obstacles(map_data.image, map_data.obstacles, sizes[CONF_SIZE_OBSTACLE_RADIUS], colors)
             if DRAWABLE_PATH == drawable and map_data.path is not None:
                 ImageHandler.draw_path(map_data.image, map_data.path, colors, scale)
             if DRAWABLE_GOTO_PATH == drawable and map_data.goto_path is not None:

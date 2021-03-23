@@ -26,6 +26,7 @@ DEFAULT_TRIMS = {
 
 DEFAULT_SIZES = {
     CONF_SIZE_VACUUM_RADIUS: 4,
+    CONF_SIZE_OBSTACLE_RADIUS: 3,
     CONF_SIZE_CHARGER_RADIUS: 4
 }
 
@@ -75,6 +76,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
             })]),
         vol.Optional(CONF_SIZES, default=DEFAULT_SIZES): vol.Schema({
             vol.Optional(CONF_SIZE_VACUUM_RADIUS, default=4): vol.All(vol.Coerce(float), vol.Range(min=0)),
+            vol.Optional(CONF_SIZE_OBSTACLE_RADIUS, default=3): vol.All(vol.Coerce(float), vol.Range(min=0))
             vol.Optional(CONF_SIZE_CHARGER_RADIUS, default=4): vol.All(vol.Coerce(float), vol.Range(min=0))
         })
     })

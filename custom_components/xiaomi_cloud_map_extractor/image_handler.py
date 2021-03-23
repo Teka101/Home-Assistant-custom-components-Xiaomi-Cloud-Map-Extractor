@@ -172,6 +172,12 @@ class ImageHandler:
         ImageHandler.__draw_circle__(image, charger, radius, color, color)
 
     @staticmethod
+    def draw_obstacles(image, obstacles, radius, colors):
+        color = ImageHandler.__get_color__(COLOR_OBSTACLE, colors)
+        for obstacle in obstacles:
+            ImageHandler.__draw_circle__(image, obstacle, radius, color, color)
+
+    @staticmethod
     def draw_vacuum_position(image, vacuum_position, radius, colors):
         color = ImageHandler.__get_color__(COLOR_ROBO, colors)
         ImageHandler.__draw_circle__(image, vacuum_position, radius, color, color)
