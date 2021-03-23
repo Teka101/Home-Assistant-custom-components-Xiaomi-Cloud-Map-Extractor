@@ -16,6 +16,7 @@ CONF_ROTATE = "rotate"
 CONF_SCALE = "scale"
 CONF_SIZES = "sizes"
 CONF_SIZE_CHARGER_RADIUS = "charger_radius"
+CONF_SIZE_OBSTACLE_RADIUS = "obstacle_radius"
 CONF_SIZE_VACUUM_RADIUS = "vacuum_radius"
 CONF_TEXT = "text"
 CONF_TEXTS = "texts"
@@ -81,6 +82,7 @@ ATTR_Y3 = "y3"
 DRAWABLE_ALL = "all"
 DRAWABLE_CHARGER = "charger"
 DRAWABLE_GOTO_PATH = "goto_path"
+DRAWABLE_OBSTACLES = "obstacles"
 DRAWABLE_NO_GO_AREAS = "no_go_zones"
 DRAWABLE_NO_MOPPING_AREAS = "no_mopping_zones"
 DRAWABLE_PATH = "path"
@@ -90,7 +92,7 @@ DRAWABLE_VIRTUAL_WALLS = "virtual_walls"
 DRAWABLE_ZONES = "zones"
 
 CONF_AVAILABLE_DRAWABLES = [DRAWABLE_ALL, DRAWABLE_NO_MOPPING_AREAS, DRAWABLE_NO_GO_AREAS, DRAWABLE_VIRTUAL_WALLS,
-                            DRAWABLE_CHARGER, DRAWABLE_ZONES, DRAWABLE_GOTO_PATH, DRAWABLE_PATH,
+                            DRAWABLE_CHARGER, DRAWABLE_ZONES, DRAWABLE_OBSTACLES, DRAWABLE_GOTO_PATH, DRAWABLE_PATH,
                             DRAWABLE_PREDICTED_PATH, DRAWABLE_VACUUM_POSITION]
 
 COLOR_ROOM_PREFIX = "color_room_"
@@ -106,6 +108,7 @@ COLOR_NO_GO_ZONES = "color_no_go_zones"
 COLOR_NO_GO_ZONES_OUTLINE = "color_no_go_zones_outline"
 COLOR_NO_MOPPING_ZONES = "color_no_mop_zones"
 COLOR_NO_MOPPING_ZONES_OUTLINE = "color_no_mop_zones_outline"
+COLOR_OBSTACLE = "color_obstacle"
 COLOR_PATH = "color_path"
 COLOR_PREDICTED_PATH = "color_predicted_path"
 COLOR_ROBO = "color_robo"

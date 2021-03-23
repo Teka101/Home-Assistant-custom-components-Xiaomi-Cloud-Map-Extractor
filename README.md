@@ -1,20 +1,20 @@
+# Based on (https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor)
+
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz/docs/faq/custom_repositories)
 [![Community Forum](https://img.shields.io/badge/Community-Forum-41BDF5.svg?style=popout)](https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292)
-[![buymeacoffee_badge](https://img.shields.io/badge/Donate-Buy%20Me%20a%20Coffee-ff813f?style=flat)](https://www.buymeacoffee.com/PiotrMachowski)
-[![paypalme_badge](https://img.shields.io/badge/Donate-PayPal-0070ba?style=flat)](https://paypal.me/PiMachowski)
 
 # Xiaomi Cloud Map Extractor
 
 This custom integration provides a way to present a live view of a map for a Xiaomi vacuum.
 
-<img src="https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_no_rooms.png" width=48%>  <img src="https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_rooms.png" width=48%>
+<img src="https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_no_rooms.png" width=48%>  <img src="https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_rooms.png" width=48%>
 
 ## Installation
 
 ### Using [HACS](https://hacs.xyz/) (recommended)
 
 This integration can be added to HACS as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories):
-* URL: `https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor`
+* URL: `https://github.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor`
 * Category: `Integration`
 
 After adding a custom repository you can use HACS to install this integration using user interface.
@@ -22,24 +22,24 @@ After adding a custom repository you can use HACS to install this integration us
 ### Manual
 
 To install this integration manually you have to download following files:
- * [*camera.py*](https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/camera.py)
- * [*const.py*](https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/const.py)
- * [*image_handler.py*](https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/image_handler.py)
- * [*manifest.json*](https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/manifest.json)
- * [*map_data_parser.py*](https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/map_data_parser.py)
- * [*xiaomi_cloud_connector.py*](https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/xiaomi_cloud_connector.py)
+ * [*camera.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/camera.py)
+ * [*const.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/const.py)
+ * [*image_handler.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/image_handler.py)
+ * [*manifest.json*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/manifest.json)
+ * [*map_data_parser.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/map_data_parser.py)
+ * [*xiaomi_cloud_connector.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/xiaomi_cloud_connector.py)
 
 to `config/custom_components/xiaomi_cloud_map_extractor` directory:
 
 ```bash
 mkdir -p custom_components/xiaomi_cloud_map_extractor
 cd custom_components/xiaomi_cloud_map_extractor
-wget https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/camera.py
-wget https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/const.py
-wget https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/image_handler.py
-wget https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/manifest.json
-wget https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/map_data_parser.py
-wget https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/xiaomi_cloud_connector.py
+wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/camera.py
+wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/const.py
+wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/image_handler.py
+wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/manifest.json
+wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/map_data_parser.py
+wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/xiaomi_cloud_connector.py
 ```
 
 ## Configuration
@@ -80,7 +80,7 @@ If you have a problem with configuration validation you have to remove camera fr
   Each color is represented by a list of 3 or 4 parameters: `[red, green, blue]` or `[red, green, blue, alpha]`.
   Each parameter is a number from a range 0-255 and can be also provided as a HEX value: [0x12, 0xAF, 0xC5] matches #12AFC5. 
   
-  <img src="https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_no_rooms_custom_colors.png" width=50%>
+  <img src="https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_no_rooms_custom_colors.png" width=50%>
    
   | Color name | Description |
   | --- | --- |
@@ -100,6 +100,7 @@ If you have a problem with configuration validation you have to remove camera fr
   | `color_no_mop_zones` | Fill of no-mopping zones |
   | `color_no_mop_zones_outline` | Outline of no-mopping zones |
   | `color_charger` | Charger position |
+  | `color_obstacle` | Obstacle position |
   | `color_robo` | Vacuum position |
   | `color_scan` | Areas not assigned to any room (for software with rooms support) |
   | `color_unknown` | Other areas |
@@ -165,7 +166,7 @@ fc-list | grep ttf | sed "s/.*\///"| sed "s/ttf.*/ttf/"
   Available values:
   - `calibration_points` - Calculated calibration points for [Lovelace Xiaomi Vacuum Map card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card).
 
-     <img src="https://raw.githubusercontent.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_card.gif" width=50%>
+     <img src="https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/images/map_card.gif" width=50%>
   
   - `charger`
   - `country`
@@ -237,6 +238,7 @@ camera:
       color_zones: [0xAD, 0xD8, 0xFF, 0x8F]
       color_zones_outline: [0xAD, 0xD8, 0xFF]
       color_virtual_walls: [255, 0, 0]
+      color_obstacle: [0, 0, 0, 180]
       color_no_go_zones: [255, 33, 55, 127]
       color_no_go_zones_outline: [255, 0, 0]
       color_no_mop_zones: [163, 130, 211, 127]
@@ -267,6 +269,7 @@ camera:
       - path
       - goto_path
       - predicted_path
+      - obstacles
       - no_go_zones
       - no_mopping_zones
       - vacuum_position
@@ -293,6 +296,7 @@ camera:
         right: 40
     sizes:
       charger_radius: 4
+      obstacle_radius: 3
       vacuum_radius: 6.5
     attributes:
       - calibration_points
@@ -337,5 +341,3 @@ This integration was tested on following vacuums:
 At this moment this integration is known to not work with following vacuums:
  - Roborock E50
  - Xiaomi Mi Robot Vacuum Mop Pro (STYJ02YM)
-
-<a href="https://www.buymeacoffee.com/PiotrMachowski" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
