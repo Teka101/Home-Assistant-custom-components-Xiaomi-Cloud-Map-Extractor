@@ -19,29 +19,6 @@ This integration can be added to HACS as a [custom repository](https://hacs.xyz/
 
 After adding a custom repository you can use HACS to install this integration using user interface.
 
-### Manual
-
-To install this integration manually you have to download following files:
- * [*camera.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/camera.py)
- * [*const.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/const.py)
- * [*image_handler.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/image_handler.py)
- * [*manifest.json*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/manifest.json)
- * [*map_data_parser.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/map_data_parser.py)
- * [*xiaomi_cloud_connector.py*](https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/xiaomi_cloud_connector.py)
-
-to `config/custom_components/xiaomi_cloud_map_extractor` directory:
-
-```bash
-mkdir -p custom_components/xiaomi_cloud_map_extractor
-cd custom_components/xiaomi_cloud_map_extractor
-wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/camera.py
-wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/const.py
-wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/image_handler.py
-wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/manifest.json
-wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/map_data_parser.py
-wget https://raw.githubusercontent.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/master/custom_components/xiaomi_cloud_map_extractor/xiaomi_cloud_connector.py
-```
-
 ## Configuration
 
 After installation of the custom component, it needs to be configured in `configuration.yaml` file.
@@ -58,7 +35,7 @@ If you have a problem with configuration validation you have to remove camera fr
 
 | Key | Type | Required | Value | Description |
 |---|---|---|---|---|
-| `platform` | string | true | `xiaomi_cloud_map_extractor` | Name of a platform |
+| `platform` | string | true | `xiaomi_cloud_map_extractor_v2` | Name of a platform |
 | `host` | string | true | `192.168.0.123` | IP address of a vacuum |
 | `token` | string | true | `ghjhca3ykg8o2zyyj7xb5adamhgsypel` | Token of a vacuum |
 | `username` | string | true | `xiaomi.account@gmail.com` | Username (email or user ID) used to connect to Xiaomi cloud (the account used in the Xiaomi Home app) |
@@ -193,7 +170,7 @@ fc-list | grep ttf | sed "s/.*\///"| sed "s/ttf.*/ttf/"
 
 ```yaml
 camera:
-  - platform: xiaomi_cloud_map_extractor
+  - platform: xiaomi_cloud_map_extractor_v2
     host: !secret xiaomi_vacuum_host
     token: !secret xiaomi_vacuum_token
     username: !secret xiaomi_cloud_username
@@ -204,7 +181,7 @@ camera:
 
 ```yaml
 camera:
-  - platform: xiaomi_cloud_map_extractor
+  - platform: xiaomi_cloud_map_extractor_v2
     host: !secret xiaomi_vacuum_host
     token: !secret xiaomi_vacuum_token
     username: !secret xiaomi_cloud_username
@@ -219,7 +196,7 @@ camera:
 
 ```yaml
 camera:
-  - platform: xiaomi_cloud_map_extractor
+  - platform: xiaomi_cloud_map_extractor_v2
     host: !secret xiaomi_vacuum_host
     token: !secret xiaomi_vacuum_token
     username: !secret xiaomi_cloud_username
