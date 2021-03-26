@@ -230,7 +230,7 @@ class MapDataParser:
 
     @staticmethod
     def draw_elements(colors, drawables, sizes, map_data, image_config):
-        scale = image_config[CONF_SCALE]
+        scale = int(image_config[CONF_SCALE])
         for drawable in drawables:
             if DRAWABLE_CHARGER == drawable and map_data.charger is not None:
                 ImageHandler.draw_charger(map_data.image, map_data.charger, sizes[CONF_SIZE_CHARGER_RADIUS], colors)
