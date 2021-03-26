@@ -1,10 +1,10 @@
 {
-  "domain": "xiaomi_cloud_map_extractor",
-  "name": "Xiaomi Cloud Map Extractor",
-  "documentation": "https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor",
+  "domain": "xiaomi_cloud_map_extractor_v2",
+  "name": "Xiaomi Cloud Map Extractor v2",
+  "documentation": "https://github.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor",
   "dependencies": [],
   "codeowners": [
-    "@PiotrMachowski"
+    "@Teka101"
   ],
   "requirements": [
     "pillow",
@@ -13,5 +13,5 @@
     "python-miio",
     "requests"
   ],
-  "version": "v1.0.6"
+  "version": "v1.0.0"
 }

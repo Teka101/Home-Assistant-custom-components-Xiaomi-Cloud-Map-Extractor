@@ -1,7 +1,7 @@
 {
-  "name": "Xiaomi Cloud Map Extractor",
+  "name": "Xiaomi Cloud Map Extractor v2",
   "render_readme": true,
-  "domain": "xiaomi_cloud_map_extractor",
+  "domain": "xiaomi_cloud_map_extractor_v2",
   "documentation": "https://github.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor",
   "issue_tracker": "https://github.com/Teka101/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/issues"
 }
