@@ -165,8 +165,10 @@ class MapDataParser:
     @staticmethod
     def parse_obstacles(data, header):
         obstacle_pairs = MapDataParser.get_int16(header, 0x08)
-        obstacle_size = int(len(data) / obstacle_pairs)
         obstacles = []
+        if obstacle_pairs == 0:
+            return obstacles
+        obstacle_size = int(len(data) / obstacle_pairs)
         for obstacle_start in range(0, obstacle_pairs * obstacle_size, obstacle_size):
             x0 = MapDataParser.get_int16(data, obstacle_start + 0)
             y0 = MapDataParser.get_int16(data, obstacle_start + 2)
